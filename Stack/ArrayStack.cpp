@@ -2,13 +2,10 @@
 #include <iostream>
 
 
-
-
-
 template <typename T>
 ArrayStack<T>::ArrayStack() {
-	ArrayStack<T>::stack = new T[DEFAULT_CAP];
-	ArrayStack<T>::top = 1;
+	stack = new T[DEFAULT_CAP];
+	top = 1;
 }
 
 template <typename T>
@@ -18,7 +15,11 @@ void ArrayStack<T>::push(T element) {
 
 template <typename T>
 T ArrayStack<T>::pop() {
-	return stack[top];
+
+	T element = stack[top];
+	top--;
+
+	return element;
 }
 
 template <typename T>
@@ -32,6 +33,7 @@ bool ArrayStack<T>::isEmpty() {
 
 template <typename T>
 int ArrayStack<T>::size() {
+	return top;
 }
 
 template <typename T>

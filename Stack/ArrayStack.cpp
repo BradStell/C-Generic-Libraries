@@ -1,33 +1,41 @@
 #include "ArrayStack.h"
 #include <iostream>
 
-template <class T> class ArrayStack {
-	private:
-		static const int DEFAULT_CAP = 100;
-		T* stack;
-		int top;
-	public:	
-		ArrayStack::ArrayStack() {
-			stack = new T[DEFAULT_CAP];
+
+
+
+
+template <typename T>
+ArrayStack<T>::ArrayStack() {
+	ArrayStack<T>::stack = new T[DEFAULT_CAP];
+	ArrayStack<T>::top = 1;
+}
+
+template <typename T>
+void ArrayStack<T>::push(T element) {
+	stack[top] = element;
+}
+
+template <typename T>
+T ArrayStack<T>::pop() {
+	return stack[top];
+}
+
+template <typename T>
+T ArrayStack<T>::peek() {		
 		}
 
-		void push(T element) {
-			std::cout << "In push" << endl;
-		}
 
-		T pop() {
-			
-		}
+template <typename T>
+bool ArrayStack<T>::isEmpty() {
+}
 
-		T peek() {		
-		}
+template <typename T>
+int ArrayStack<T>::size() {
+}
 
-		bool isEmpty() {
-		}
-
-		int size() {
-		}
-
-		char* toString() {
-		}
-};	
+template <typename T>
+char* ArrayStack<T>::toString() {
+}
+	
+template class ArrayStack<int>;	

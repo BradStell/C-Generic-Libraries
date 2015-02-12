@@ -1,7 +1,11 @@
-#include "ArrayStack.h"
 #include <iostream>
+#include "ArrayStack.h"
+
 
 int main() {
 	ArrayStack<int> stack;
-	stack.push(8);
+
+	stack.push(5);
+	
+	std::cout << stack.pop();
 }

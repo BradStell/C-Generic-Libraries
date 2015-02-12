@@ -5,8 +5,16 @@ using namespace std;
 
 class myexception: public exception
 {
-  virtual const char* what() const throw()
-  {
-    return "! Stack is Empty !";
-  }
-} myex;
+	private:
+		const char* msg;
+
+
+	public:
+		myexception (const char* msg) {
+			this->msg = msg;
+		}
+
+		virtual const char* what() const throw() {
+			return msg;
+		}
+};

@@ -2,6 +2,7 @@
 #define ARRAYSTACK_H
 
 #include <iostream>
+#include <string>
 #include "exception.h"
 
 
@@ -21,10 +22,13 @@ class ArrayStack {
 		T peek();
 		bool isEmpty();
 		int size();
-		char* toString();
+		string toString();		
 };
 
-
+template <typename T>
+std::ostream& operator<<(std::ostream &strm, ArrayStack<T> &a) {
+  return strm << "A(" << a.size() << ")";
+}
 
 template <typename T>
 ArrayStack<T>::ArrayStack() {
@@ -57,6 +61,7 @@ T ArrayStack<T>::pop() {
 	try {
 
 		if (top == 0) {
+			myexception myex("Empty Stack");
 			throw myex;
 		}
 
@@ -82,12 +87,24 @@ void ArrayStack<T>::expandSize() {
 
 template <typename T>
 T ArrayStack<T>::peek() {		
+	try {
 
+		if (top == 0) {
+			myexception myex("Trying To Peek at Empty Stack");
+			throw myex;
+		}
+		
+		return stack[top - 1];
+
+	} catch (exception& e) {
+		std::cout << e.what() << std::endl;
+	}	
 }
 
 
 template <typename T>
 bool ArrayStack<T>::isEmpty() {
+	return top == 0;
 }
 
 template <typename T>
@@ -96,7 +113,13 @@ int ArrayStack<T>::size() {
 }
 
 template <typename T>
-char* ArrayStack<T>::toString() {
+string ArrayStack<T>::toString() {
+	string result = "";
+	for (int i = 0; i < top; i++) {
+		result += stack[i] + "";
+	}
+
+	return result;
 }
 
 #endif

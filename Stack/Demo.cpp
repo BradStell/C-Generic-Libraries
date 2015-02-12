@@ -1,20 +1,16 @@
 #include <iostream>
+#include "rectangle.h"
 #include "ArrayStack.h"
 
 
+
 int main() {
-	ArrayStack<int> stack;
+	ArrayStack<Rectangle> stack;
 
+	Rectangle rect1;
+	Rectangle rect2;
+
+	stack.push(rect1);
+	stack.push(rect2);	
 	
-	stack.push(5);
-	stack.push(6);
-	stack.push(2);
-	stack.push(15);
-	stack.push(78);
-	stack.push(4);
-
-	std::cout << stack.pop() << std::endl;
-	
-	int s = stack.pop();
-
 }

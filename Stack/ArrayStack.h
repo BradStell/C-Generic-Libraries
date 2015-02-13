@@ -21,13 +21,12 @@ class ArrayStack {
 		void expandSize();
 		T peek();
 		bool isEmpty();
-		int size();
-		string toString();		
+		int size();	
 };
 
 template <typename T>
 std::ostream& operator<<(std::ostream &strm, ArrayStack<T> &a) {
-  return strm << "A(" << a.size() << ")";
+  return strm << "Size: " << a.size();
 }
 
 template <typename T>
@@ -110,16 +109,6 @@ bool ArrayStack<T>::isEmpty() {
 template <typename T>
 int ArrayStack<T>::size() {
 	return top;
-}
-
-template <typename T>
-string ArrayStack<T>::toString() {
-	string result = "";
-	for (int i = 0; i < top; i++) {
-		result += stack[i] + "";
-	}
-
-	return result;
 }
 
 #endif

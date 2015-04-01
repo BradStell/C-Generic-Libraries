@@ -68,7 +68,7 @@ T ArrayStack<T>::pop() {
 		top--;
 		return element;
 
-	} catch (exception& e) {
+	} catch (exception &e) {
 		std::cout << e.what() << std::endl;
 	}		
 }

@@ -3,11 +3,10 @@
 #include <exception>
 using namespace std;
 
-class myexception: public exception
-{
+class myexception: public exception {
+
 	private:
 		const char* msg;
-
 
 	public:
 		myexception (const char* msg) {
